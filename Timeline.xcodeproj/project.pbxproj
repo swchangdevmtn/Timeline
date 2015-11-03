@@ -12,6 +12,14 @@
 		54FB483F1BE956560057D4C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FB483D1BE956560057D4C4 /* Main.storyboard */; };
 		54FB48411BE956560057D4C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54FB48401BE956560057D4C4 /* Assets.xcassets */; };
 		54FB48441BE956560057D4C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FB48421BE956560057D4C4 /* LaunchScreen.storyboard */; };
+		54FB484E1BE960850057D4C4 /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FB484D1BE960850057D4C4 /* TimelineTableViewController.swift */; };
+		54FB48511BE9617C0057D4C4 /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FB48501BE9617C0057D4C4 /* PostDetailTableViewController.swift */; };
+		54FB48531BE9628C0057D4C4 /* UserSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FB48521BE9628C0057D4C4 /* UserSearchTableViewController.swift */; };
+		54FB48551BE963AD0057D4C4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FB48541BE963AD0057D4C4 /* ProfileViewController.swift */; };
+		54FB48571BE965490057D4C4 /* AddPhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FB48561BE965490057D4C4 /* AddPhotoTableViewController.swift */; };
+		54FB48591BE966470057D4C4 /* LoginSignupPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FB48581BE966470057D4C4 /* LoginSignupPickerViewController.swift */; };
+		54FB485B1BE966BF0057D4C4 /* LoginSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FB485A1BE966BF0057D4C4 /* LoginSignupViewController.swift */; };
+		54FB485D1BE9672A0057D4C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FB485C1BE9672A0057D4C4 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,14 @@
 		54FB48401BE956560057D4C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54FB48431BE956560057D4C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54FB48451BE956560057D4C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54FB484D1BE960850057D4C4 /* TimelineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		54FB48501BE9617C0057D4C4 /* PostDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewController.swift; sourceTree = "<group>"; };
+		54FB48521BE9628C0057D4C4 /* UserSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewController.swift; sourceTree = "<group>"; };
+		54FB48541BE963AD0057D4C4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		54FB48561BE965490057D4C4 /* AddPhotoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoTableViewController.swift; sourceTree = "<group>"; };
+		54FB48581BE966470057D4C4 /* LoginSignupPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSignupPickerViewController.swift; sourceTree = "<group>"; };
+		54FB485A1BE966BF0057D4C4 /* LoginSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSignupViewController.swift; sourceTree = "<group>"; };
+		54FB485C1BE9672A0057D4C4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +76,32 @@
 				54FB48401BE956560057D4C4 /* Assets.xcassets */,
 				54FB48421BE956560057D4C4 /* LaunchScreen.storyboard */,
 				54FB48451BE956560057D4C4 /* Info.plist */,
+				54FB485E1BE967370057D4C4 /* Models */,
+				54FB484F1BE961490057D4C4 /* Controllers */,
 			);
 			path = Timeline;
+			sourceTree = "<group>";
+		};
+		54FB484F1BE961490057D4C4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				54FB485A1BE966BF0057D4C4 /* LoginSignupViewController.swift */,
+				54FB48581BE966470057D4C4 /* LoginSignupPickerViewController.swift */,
+				54FB48561BE965490057D4C4 /* AddPhotoTableViewController.swift */,
+				54FB48541BE963AD0057D4C4 /* ProfileViewController.swift */,
+				54FB48521BE9628C0057D4C4 /* UserSearchTableViewController.swift */,
+				54FB484D1BE960850057D4C4 /* TimelineTableViewController.swift */,
+				54FB48501BE9617C0057D4C4 /* PostDetailTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		54FB485E1BE967370057D4C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				54FB485C1BE9672A0057D4C4 /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +176,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54FB48551BE963AD0057D4C4 /* ProfileViewController.swift in Sources */,
+				54FB48531BE9628C0057D4C4 /* UserSearchTableViewController.swift in Sources */,
 				54FB483C1BE956560057D4C4 /* ViewController.swift in Sources */,
+				54FB484E1BE960850057D4C4 /* TimelineTableViewController.swift in Sources */,
+				54FB485B1BE966BF0057D4C4 /* LoginSignupViewController.swift in Sources */,
+				54FB48591BE966470057D4C4 /* LoginSignupPickerViewController.swift in Sources */,
+				54FB48511BE9617C0057D4C4 /* PostDetailTableViewController.swift in Sources */,
 				54FB483A1BE956560057D4C4 /* AppDelegate.swift in Sources */,
+				54FB485D1BE9672A0057D4C4 /* User.swift in Sources */,
+				54FB48571BE965490057D4C4 /* AddPhotoTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

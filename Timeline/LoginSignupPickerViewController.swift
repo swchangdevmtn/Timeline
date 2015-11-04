@@ -10,10 +10,13 @@ import UIKit
 
 class LoginSignupPickerViewController: UIViewController {
 
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        updateViewForMode(mode)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +24,20 @@ class LoginSignupPickerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationViewController = segue.destinationViewController as? LoginSignupViewController {
+            if segue.identifier = "toLogin" {
+                destinationViewController.mode = .Login
+            }
+            if segue.identifier = "toSignup" {
+                destinationViewController.mode = .Signup
+            }
+            
+            else {
+                destinationViewController.mode = .Signup
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

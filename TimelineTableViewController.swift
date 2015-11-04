@@ -10,6 +10,25 @@ import UIKit
 
 class TimelineTableViewController: UITableViewController {
 
+    var posts: [Post] = []
+    override func viewDidAppear(animated: Bool) {
+        if let currentUser = UserController.sharedInstance.currentUser {
+            if posts.count > 0 {
+                loadTimelineForUser(currentUser)
+            }
+        } else {
+            tabBarController?.performSegueWithIdentifier("noCurrentUser", sender: nil)
+        }
+    }
+    
+    func loadTimelineForUser (user: User) {
+        PostController.fetchTimelineForUser(user) { (posts) -> Void in
+            if let posts = posts {
+                self.posts = posts
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

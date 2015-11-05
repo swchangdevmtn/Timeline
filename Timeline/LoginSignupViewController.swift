@@ -37,9 +37,9 @@ class LoginSignupViewController: UIViewController {
                     }
                 })
             case .Edit:
-                UserController.updateUser(usernameField.text, bio: bioField.text, url: urlField.text, completion: { (success, user) -> Void in
+                UserController.updateUser(user!, bio: bioField.text, url: urlField.text, completion: { (success, user) -> Void in
                     if success {
-                        self.dismissViewControllerAnimated(true, completion: nil
+                        self.dismissViewControllerAnimated(true, completion: nil)
                     } else {
                         self.presentValidationAlertWithTitle("Could not edit user.", text: "Sorry, try again.")
                     }
@@ -71,7 +71,7 @@ class LoginSignupViewController: UIViewController {
             return !(emailField.text!.isEmpty || passwordField.text!.isEmpty)
         case .Login:
             return !(usernameField.text!.isEmpty || emailField.text!.isEmpty || passwordField.text!.isEmpty)
-        case .Edit
+        case .Edit:
             return !(usernameField.text!.isEmpty)
         }
     }

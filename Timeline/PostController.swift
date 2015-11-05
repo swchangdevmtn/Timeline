@@ -22,7 +22,7 @@ class PostController {
         completion(post: mockPosts().first)
     }
     
-    static func postsFromUser(user: User, completion: (posts: [Post]?) -> Void) {
+    static func postsForUser(user: User, completion: (posts: [Post]?) -> Void) {
         completion(posts: mockPosts())
     }
     

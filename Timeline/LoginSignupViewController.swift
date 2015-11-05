@@ -36,10 +36,20 @@ class LoginSignupViewController: UIViewController {
                         self.presentValidationAlertWithTitle("Couldn't log you in.", text: "Check your spelling.")
                     }
                 })
+            case .Edit:
+                UserController.updateUser(usernameField.text, bio: bioField.text, url: urlField.text, completion: { (success, user) -> Void in
+                    if success {
+                        self.dismissViewControllerAnimated(true, completion: nil
+                    } else {
+                        self.presentValidationAlertWithTitle("Could not edit user.", text: "Sorry, try again.")
+                    }
+                })
                 
             }
         }
     }
+    
+    var user: User?
     
     func presentValidationAlertWithTitle(title: String, text: String) {
         let validationAlert = UIAlertController(title: title, message: text, preferredStyle: .Alert)
@@ -50,6 +60,7 @@ class LoginSignupViewController: UIViewController {
     enum ViewMode {
         case Login
         case Signup
+        case Edit
     }
     
     var mode: ViewMode = .Signup
@@ -60,6 +71,8 @@ class LoginSignupViewController: UIViewController {
             return !(emailField.text!.isEmpty || passwordField.text!.isEmpty)
         case .Login:
             return !(usernameField.text!.isEmpty || emailField.text!.isEmpty || passwordField.text!.isEmpty)
+        case .Edit
+            return !(usernameField.text!.isEmpty)
         }
     }
     

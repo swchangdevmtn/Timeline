@@ -11,7 +11,7 @@ import UIKit
 class TimelineTableViewController: UITableViewController {
 
     var posts: [Post] = []
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         if let currentUser = UserController.sharedInstance.currentUser {
             if posts.count > 0 {
                 loadTimelineForUser(currentUser)

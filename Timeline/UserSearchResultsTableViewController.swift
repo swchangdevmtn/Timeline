@@ -34,10 +34,9 @@ class UserSearchResultsTableViewController: UITableViewController {
         return cell
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         self.presentingViewController?.performSegueWithIdentifier("toProfileView", sender: cell)
     }
-
-
+    
 }

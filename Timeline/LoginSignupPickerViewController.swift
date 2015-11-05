@@ -15,7 +15,6 @@ class LoginSignupPickerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        updateViewForMode(mode)
         
     }
 
@@ -25,18 +24,18 @@ class LoginSignupPickerViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destinationViewController = segue.destinationViewController as? LoginSignupViewController {
-            if segue.identifier = "toLogin" {
-                destinationViewController.mode = .Login
-            }
-            if segue.identifier = "toSignup" {
-                destinationViewController.mode = .Signup
-            }
-            
-            else {
-                destinationViewController.mode = .Signup
-            }
+        
+        if segue.identifier == "toLogin" {
+            let destinationViewController = segue.destinationViewController as? LoginSignupViewController
+            destinationViewController?.mode = .Login
+        } else if segue.identifier == "toSignup" {
+            let destinationViewController = segue.destinationViewController as? LoginSignupViewController
+            destinationViewController?.mode = .Signup
+        } else {
+            let destinationViewController = segue.destinationViewController as? LoginSignupViewController
+            destinationViewController?.mode = .Signup
         }
+        
     }
 
     /*

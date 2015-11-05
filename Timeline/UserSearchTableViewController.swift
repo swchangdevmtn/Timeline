@@ -8,13 +8,13 @@
 
 import UIKit
 
-class UserSearchTableViewController: UITableViewController, UISearchController, UISearchResultsUpdating {
+class UserSearchTableViewController: UITableViewController, UISearchResultsUpdating {
 
     var userDataSource: [User] = []
     
     var mode: ViewMode {
         get {
-            return ViewMode(rawValue: modeSegmentedControl.selectedSegmentIndex)
+            return ViewMode(rawValue: modeSegmentedControl.selectedSegmentIndex)!
         }
     }
     
@@ -32,11 +32,11 @@ class UserSearchTableViewController: UITableViewController, UISearchController, 
             switch self {
             case .Friends:
                 UserController.followedByUser(UserController.sharedInstance.currentUser, completion: { (followed) -> Void in
-                    completion:(users: followed)
+                    completion(users: followed)
                 })
             case .All:
                 UserController.fetchAllUsers({ (users) -> Void in
-                    completion:(users: users)
+                    completion(users: users)
                 })
             }
         }
@@ -97,7 +97,7 @@ class UserSearchTableViewController: UITableViewController, UISearchController, 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("usernameCell", forIndexPath: indexPath)
         
-        let user = usersDataSource[indexPath.row]
+        let user = userDataSource[indexPath.row]
         
         cell.textLabel?.text = user.username
         
@@ -106,7 +106,7 @@ class UserSearchTableViewController: UITableViewController, UISearchController, 
     
     // MARK: Segue
     
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toProfileView" {
             guard let cell = sender as? UITableViewCell else { return }
             if let indexPath = tableView.indexPathForCell(cell) {

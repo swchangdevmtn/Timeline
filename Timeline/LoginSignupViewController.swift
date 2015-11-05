@@ -70,8 +70,7 @@ class LoginSignupViewController: UIViewController {
     
 
     
-    var mode: ViewMode = .Signup
-    
+    var mode = ViewMode.Signup
     var fieldAreValid: Bool {
         switch mode {
         case .Signup:
@@ -89,9 +88,9 @@ class LoginSignupViewController: UIViewController {
             actionButtonLabel.setTitle("Sign up", forState: .Normal)
         case .Login:
             actionButtonLabel.setTitle("Login", forState: .Normal)
-            usernameField.removeFromSuperview()
-            bioField.removeFromSuperview()
-            urlField.removeFromSuperview()
+            usernameField.hidden = true
+            bioField.hidden = true
+            urlField.hidden = true
         case .Edit:
             actionButtonLabel.setTitle("Edit", forState: .Normal)
             emailField.hidden = true

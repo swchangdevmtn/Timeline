@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import SafariServices
 
 class ProfileViewController: UIViewController, UICollectionViewDataSource, ProfileHeaderCollectionReusableViewDelegate {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var editBarButton: UIBarButtonItem!
     var user: User?
     var userPosts: [Post] = []
     
@@ -25,7 +28,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, Profi
                 self.userPosts = []
             }
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.collectionView.reload
+                self.collectionView.reloadData()
             })
         }
     }
@@ -33,11 +36,15 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, Profi
         super.viewDidLoad()
 
         if user == nil {
-            user = UserController.sharedController.currentUser
-            editBarButtonItem.enabled = true
+            user = UserController.sharedInstance.currentUser
+            editBarButton.enabled = true
         }
         
         updateBasedOnUser()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+         super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +63,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, Profi
         
         let post = userPosts[indexPath.item]
         
-        cell.updateWithImageIdentifier(post.imageEndpoint)
+        cell.updateWithImageIdentifier(post.imageEndPoint)
         
         return cell
     }
@@ -74,19 +81,25 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, Profi
     
     func userTappedFollowActionButton() {
         guard let user = user else {return}
+        
         if user == UserController.sharedInstance.currentUser {
-            UserController.logoutCurrentUs  er()
+            
+            UserController.logoutCurrentUser()
             tabBarController?.selectedViewController = tabBarController?.viewControllers![0]
+            
         } else {
-            UserController.userFollowsUser(UserController.sharedInstance.currentUser, follows: user, completion: { (success) -> Void in
+            UserController.userFollowsUser(UserController.sharedInstance.currentUser, follows: user) { (follows) -> Void in
+                
                 if follows {
                     UserController.unfollowUser(self.user!, completion: { (success) -> Void in
+                        
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             self.updateBasedOnUser()
                         })
                     })
                 } else {
                     UserController.followUser(self.user!, completion: { (success) -> Void in
+                        
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             self.updateBasedOnUser()
                         })
@@ -97,7 +110,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, Profi
     }
     
     func userTappedURLButton() {
-        if let profileURL = NSURL(string: user!.url) {
+        if let profileURL = NSURL(string: user!.url!) {
             let safariViewController = SFSafariViewController(URL: profileURL)
             presentViewController(safariViewController, animated: true, completion: nil)
         }

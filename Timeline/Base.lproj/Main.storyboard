@@ -412,7 +412,17 @@
                             <constraint firstItem="50t-wb-vJo" firstAttribute="top" secondItem="Tdj-c5-2KA" secondAttribute="bottom" id="eGy-dz-vmc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="4Gp-Eu-fpg"/>
+                    <navigationItem key="navigationItem" id="4Gp-Eu-fpg">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="edit" id="HnZ-UQ-eTF">
+                            <connections>
+                                <segue destination="CqG-5G-zdp" kind="presentation" identifier="toEditProfile" id="Ej6-jQ-i5t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="Tdj-c5-2KA" id="arL-GJ-oec"/>
+                        <outlet property="editBarButton" destination="HnZ-UQ-eTF" id="12e-dG-Irq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPo-D0-07A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -522,7 +532,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DRa-pO-lGq"/>
-        <segue reference="g4w-le-DRh"/>
+        <segue reference="0Ip-rM-CMg"/>
+        <segue reference="Ej6-jQ-i5t"/>
     </inferredMetricsTieBreakers>
 </document>

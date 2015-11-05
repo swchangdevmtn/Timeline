@@ -10,8 +10,8 @@ import UIKit
 
 protocol ProfileHeaderCollectionReusableViewDelegate {
     
-    func userTappedFollowActionButton
-    func userTappedURLButton
+    func userTappedFollowActionButton()
+    func userTappedURLButton()
 }
 
 class ProfileHeaderCollectionReusableView: UICollectionReusableView {
@@ -46,7 +46,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         if user == UserController.sharedInstance.currentUser {
             followButton.setTitle("Logout", forState: .Normal)
         } else {
-            UserController.userFollowsUser(UserController.sharedInstance.currentUser, follows: user, completion: { (success) -> Void in
+            UserController.userFollowsUser(UserController.sharedInstance.currentUser, follows: user, completion: { (follows) -> Void in
                 if follows {
                     self.followButton.setTitle("Unfollow", forState: .Normal)
                 } else {

@@ -10,6 +10,12 @@ import UIKit
 
 class LoginSignupViewController: UIViewController {
 
+    enum ViewMode {
+        case Login
+        case Signup
+        case Edit
+    }
+    
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -49,6 +55,11 @@ class LoginSignupViewController: UIViewController {
         }
     }
     
+    func updateWithUser(user: User) {
+        self.user = user
+        ViewMode.Edit
+    }
+    
     var user: User?
     
     func presentValidationAlertWithTitle(title: String, text: String) {
@@ -57,11 +68,7 @@ class LoginSignupViewController: UIViewController {
         presentViewController(validationAlert, animated: true, completion: nil)
     }
     
-    enum ViewMode {
-        case Login
-        case Signup
-        case Edit
-    }
+
     
     var mode: ViewMode = .Signup
     
@@ -76,7 +83,7 @@ class LoginSignupViewController: UIViewController {
         }
     }
     
-    func updateViewForMode(mode: ViewMode){
+    func updateViewBasedOnMode(){
         switch mode {
         case .Signup:
             actionButtonLabel.setTitle("Sign up", forState: .Normal)
@@ -85,6 +92,16 @@ class LoginSignupViewController: UIViewController {
             usernameField.removeFromSuperview()
             bioField.removeFromSuperview()
             urlField.removeFromSuperview()
+        case .Edit:
+            actionButtonLabel.setTitle("Edit", forState: .Normal)
+            emailField.hidden = true
+            passwordField.hidden = true
+            
+            if let user = self.user {
+                usernameField.text = user.username
+                bioField.text = user.bio
+                urlField.text = user.url
+            }
         }
     }
 
@@ -93,21 +110,9 @@ class LoginSignupViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViewBasedOnMode()
     }
-    */
-
 }

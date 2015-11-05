@@ -33,8 +33,8 @@ class UserController {
         completion(success: true)
     }
     
-    static func userFollowsUser(user: User, follows: User, completion: (success: Bool) -> Void) {
-        completion(success: true)
+    static func userFollowsUser(user: User, follows: User, completion: (follows: Bool) -> Void) {
+        completion(follows: true)
     }
     
     static func followedByUser(user: User, completion: (followed: [User]?) -> Void) {

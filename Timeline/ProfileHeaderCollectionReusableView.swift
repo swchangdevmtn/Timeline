@@ -8,11 +8,27 @@
 
 import UIKit
 
+protocol ProfileHeaderCollectionReusableViewDelegate {
+    
+    func userTappedFollowActionButton
+    func userTappedURLButton
+}
+
 class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var urlButton: UIButton!
     @IBOutlet weak var followButton: UIButton!
+    
+    var delegate: ProfileHeaderCollectionReusableViewDelegate?
+    
+    @IBAction func urlButtonTapped(sender: AnyObject) {
+        delegate?.userTappedURLButton()
+    }
+    @IBAction func followButtonTapped(sender: AnyObject) {
+        delegate?.userTappedFollowActionButton()
+    }
+    
     
     func updateWithUser(user: User) {
         if let bio = user.bio {

@@ -30,8 +30,8 @@ class PostController {
         completion(success: true)
     }
     
-    static func addCommentWithTextToPost(text: String, post: Post, completion: (success: Bool) -> Void) {
-        completion(success: true)
+    static func addCommentWithTextToPost(text: String, post: Post, completion: (success: Bool, post: Post?) -> Void?) {
+        completion(success: true, post: mockPosts().first)
     }
     
     static func deleteComment(comment: Comment, completion: (success: Bool, post: Post?) -> Void) {

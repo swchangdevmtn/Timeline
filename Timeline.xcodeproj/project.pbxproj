@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		545389C31BEC323A00BDE7D7 /* PostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545389C21BEC323A00BDE7D7 /* PostCommentTableViewCell.swift */; };
 		545FE7361BEAD69A0088C87E /* UserSearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545FE7351BEAD69A0088C87E /* UserSearchResultsTableViewController.swift */; };
 		545FE7381BEAEFD90088C87E /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545FE7371BEAEFD90088C87E /* ProfileHeaderCollectionReusableView.swift */; };
 		545FE73A1BEAF6680088C87E /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545FE7391BEAF6680088C87E /* ImageCollectionViewCell.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		545389C21BEC323A00BDE7D7 /* PostCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCommentTableViewCell.swift; sourceTree = "<group>"; };
 		545FE7351BEAD69A0088C87E /* UserSearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		545FE7371BEAEFD90088C87E /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		545FE7391BEAF6680088C87E /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				545FE7351BEAD69A0088C87E /* UserSearchResultsTableViewController.swift */,
 				54FB484D1BE960850057D4C4 /* TimelineTableViewController.swift */,
 				54FB48501BE9617C0057D4C4 /* PostDetailTableViewController.swift */,
+				545389C21BEC323A00BDE7D7 /* PostCommentTableViewCell.swift */,
 				54CEA91A1BEC191200F7AC46 /* PostTableViewCell.swift */,
 			);
 			name = Controllers;
@@ -223,6 +226,7 @@
 				54FB48641BE96D320057D4C4 /* Like.swift in Sources */,
 				54CEA91B1BEC191200F7AC46 /* PostTableViewCell.swift in Sources */,
 				54FB486B1BE9815A0057D4C4 /* ImageController.swift in Sources */,
+				545389C31BEC323A00BDE7D7 /* PostCommentTableViewCell.swift in Sources */,
 				54FB484E1BE960850057D4C4 /* TimelineTableViewController.swift in Sources */,
 				54FB485B1BE966BF0057D4C4 /* LoginSignupViewController.swift in Sources */,
 				545FE7361BEAD69A0088C87E /* UserSearchResultsTableViewController.swift in Sources */,

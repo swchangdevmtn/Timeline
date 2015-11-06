@@ -11,11 +11,11 @@ import Foundation
 class UserController {
     static let sharedInstance = UserController()
     
-    var currentUser: User!
+    var currentUser: User! = UserController.mockUsers().first
     
-    init(currentUser: User? = nil) {
-        self.currentUser = currentUser
-    }
+//    init(currentUser: User? = nil) {
+//        self.currentUser = currentUser
+//    }
     
     static func userForIdentifier(identifier: String, completion: (user: User?) -> Void) {
         completion(user: mockUsers().first)

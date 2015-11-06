@@ -58,5 +58,23 @@ class TimelineTableViewController: UITableViewController {
         return cell
     }
 
+    @IBAction func pullRefresh(sender: AnyObject) {
+        loadTimelineForUser(UserController.sharedInstance.currentUser)
+    
+    }
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "timelineToPostDetail" {
+            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(cell) {
+                
+                let post = posts[indexPath.row]
+                
+                let destinationViewController = segue.destinationViewController as? PostDetailTableViewController
+                
+                destinationViewController?.post = post
+            }
+        }
+    }
 
 }

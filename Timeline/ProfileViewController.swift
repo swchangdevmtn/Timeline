@@ -115,4 +115,24 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, Profi
             presentViewController(safariViewController, animated: true, completion: nil)
         }
     }
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editUser" {
+            let destinationViewController = segue.destinationViewController as? LoginSignupViewController
+            
+            _ = destinationViewController?.view
+            
+            destinationViewController?.updateWithUser(user!)
+        } else if segue.identifier == "profileToPostDetail" {
+            if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPathForCell(cell) {
+                
+                let post = userPosts[indexPath.item]
+                
+                let destinationViewController = segue.destinationViewController as? PostDetailTableViewController
+                
+                destinationViewController?.post = post
+            }
+        }
+    }
 }

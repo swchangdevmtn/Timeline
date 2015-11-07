@@ -22,6 +22,22 @@ class LoginSignupViewController: UIViewController {
     @IBOutlet weak var bioField: UITextField!
     @IBOutlet weak var urlField: UITextField!
     @IBOutlet weak var actionButtonLabel: UIButton!
+    
+    var mode = ViewMode.Signup
+    
+    var fieldAreValid: Bool {
+        get {
+        switch mode {
+        case .Signup:
+            return !(emailField.text!.isEmpty || passwordField.text!.isEmpty)
+        case .Login:
+            return !(usernameField.text!.isEmpty || emailField.text!.isEmpty || passwordField.text!.isEmpty)
+        case .Edit:
+            return !(usernameField.text!.isEmpty)
+            }}
+        
+    }
+    
     @IBAction func actionButtonTapped(sender: AnyObject) {
         
         if fieldAreValid {
@@ -57,7 +73,7 @@ class LoginSignupViewController: UIViewController {
     
     func updateWithUser(user: User) {
         self.user = user
-        ViewMode.Edit
+        mode = .Edit
     }
     
     var user: User?
@@ -70,17 +86,8 @@ class LoginSignupViewController: UIViewController {
     
 
     
-    var mode = ViewMode.Signup
-    var fieldAreValid: Bool {
-        switch mode {
-        case .Signup:
-            return !(emailField.text!.isEmpty || passwordField.text!.isEmpty)
-        case .Login:
-            return !(usernameField.text!.isEmpty || emailField.text!.isEmpty || passwordField.text!.isEmpty)
-        case .Edit:
-            return !(usernameField.text!.isEmpty)
-        }
-    }
+    
+    
     
     func updateViewBasedOnMode(){
         switch mode {

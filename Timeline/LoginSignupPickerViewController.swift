@@ -27,13 +27,14 @@ class LoginSignupPickerViewController: UIViewController {
         
         if segue.identifier == "toLogin" {
             let destinationViewController = segue.destinationViewController as? LoginSignupViewController
-            destinationViewController?.mode = .Login
+            destinationViewController?.mode = LoginSignupViewController.ViewMode.Login
         } else if segue.identifier == "toSignup" {
             let destinationViewController = segue.destinationViewController as? LoginSignupViewController
-            destinationViewController?.mode = .Signup
-        } else {
+            destinationViewController?.mode = LoginSignupViewController.ViewMode.Signup
+            
+        } else if segue.identifier == "toEditProfile" {
             let destinationViewController = segue.destinationViewController as? LoginSignupViewController
-            destinationViewController?.mode = .Signup
+            destinationViewController?.mode = LoginSignupViewController.ViewMode.Edit
         }
         
     }

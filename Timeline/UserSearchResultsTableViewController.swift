@@ -25,7 +25,7 @@ class UserSearchResultsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("usernameCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("userResultsCell", forIndexPath: indexPath)
         
         let user = userResultsDataSource[indexPath.row]
         

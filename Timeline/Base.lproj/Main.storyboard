@@ -667,7 +667,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Zmj-fY-rwu">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userResultsCell" id="Zmj-fY-rwu">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zmj-fY-rwu" id="0d1-Ap-geC">
@@ -763,7 +763,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="gOm-VS-Mjn"/>
-        <segue reference="0Ip-rM-CMg"/>
+        <segue reference="DRa-pO-lGq"/>
         <segue reference="Ej6-jQ-i5t"/>
     </inferredMetricsTieBreakers>
 </document>

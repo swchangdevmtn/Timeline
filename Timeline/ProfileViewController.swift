@@ -134,6 +134,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, Profi
                 
                 destinationViewController?.post = post
             }
+        } else if segue.identifier == "toEditProfile" {
+            let destinationViewController = segue.destinationViewController as? LoginSignupViewController
+            if let destinationViewController = destinationViewController {
+                
+            destinationViewController.mode = .Edit }
         }
     }
 }
